@@ -1,1 +1,1 @@
-# Mental-Health-Causal-Discovery-
+# Mental Health Causal Discovery
