@@ -1,0 +1,37 @@
+digraph {
+Q87_3 [color = blue]; Q86_4 [color = blue]; Q87_1 [color = blue]; Q87_6 [color = blue]; Q86_7 [color = blue]; Q86_3 [color = blue]; Q86_6 [color = blue]; L2 [color = red]; Q104 [color = blue]; Q87_2 [color = blue]; L1 [color = red]; Q86_1 [color = blue]; L3 [color = red]; Q103 [color = blue]; Q86_8 [color = blue]; Q86_5 [color = blue]; Q87_5 [color = blue]; Q87_4 [color = blue]; Q105 [color = blue]; Q86_2 [color = blue]; 
+subgraph Undirected {
+edge [dir=none, color=black]
+}
+
+subgraph Directed {
+edge [color=black]
+L3 -> Q86_7
+Q87_2 -> Q87_1
+Q87_5 -> Q87_3
+L2 -> Q104
+Q87_5 -> Q87_6
+Q87_2 -> Q87_5
+Q87_3 -> Q87_4
+Q87_2 -> Q86_6
+L2 -> Q103
+L2 -> L3
+L3 -> Q86_8
+L2 -> Q87_3
+L2 -> Q87_6
+L1 -> Q86_5
+L1 -> L2
+Q86_6 -> Q86_5
+L1 -> Q86_4
+L3 -> Q87_1
+Q87_5 -> Q105
+L3 -> Q86_6
+L1 -> Q86_2
+Q87_5 -> Q87_4
+L1 -> Q86_3
+L2 -> Q105
+L1 -> Q86_1
+L3 -> Q87_2
+}
+
+}
