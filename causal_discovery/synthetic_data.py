@@ -165,7 +165,7 @@ def generate_save_linear(m, name, n=10):
 
         return inv_sqrt @ sigma @ inv_sqrt
 
-    np.save(f"results/corr_{name}.npy", get_corr(m))
+    np.save(f"data/synthetic/graphs/corr_{name}.npy", get_corr(m))
 
     discretize(X)
     X.to_csv(f"./data/synthetic/{name}_linear.csv", index=False)
@@ -228,8 +228,12 @@ def generate_save_non_diff(m, name, n=10):
 
 if __name__ == "__main__":
 
-    if not os.path.exists("./data/synthetic"):
-        os.makedirs("./data/synthetic")
+    if not os.path.exists("./data/synthetic/graphs"):
+        os.makedirs("./data/synthetic/graphs")
+    
+    if not os.path.exists("./data/synthetic/V"):
+        os.makedirs("./data/synthetic/V")
+
 
     set_graph = synthetic_set_graph()
     balanced_graph = synthetic_balanced_graph()

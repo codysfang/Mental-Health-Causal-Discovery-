@@ -5,7 +5,7 @@ sys.path.append("./scm-identify")
 from StructureLearning.RLCD.RLCD_alg import RLCD
 from DGM.DataModel import DataModel
 from utils.Chi2RankTest import Chi2RankTest
-from utils.PermutationTest import PermutationTest
+from PermutationTest import PermutationTest
 from utils.GraphDrawer import printGraph
 from utils.utils import set_random_seed
 from argparse import ArgumentParser
@@ -51,9 +51,9 @@ def run_all(graph_prefix, test_type, alpha=0.05):
     
     results_dir = './results/rlcd/synthetic'
     mask = np.array([False for _ in linear.xvars])
-    run_rlcd(linear, alpha, f"{graph_prefix}_graph_linear1", results_dir, test_method=test_type, mask=mask)
-    run_rlcd(additive, alpha, f"{graph_prefix}_graph_additive1", results_dir, test_method=test_type, mask=mask)
-    run_rlcd(non_diff, alpha, f"{graph_prefix}_graph_non_diff1", results_dir, test_method=test_type, mask=mask)
+    run_rlcd(linear, alpha, f"{graph_prefix}_graph_linear", results_dir, test_method=test_type, mask=mask)
+    run_rlcd(additive, alpha, f"{graph_prefix}_graph_additive", results_dir, test_method=test_type, mask=mask)
+    run_rlcd(non_diff, alpha, f"{graph_prefix}_graph_non_diff", results_dir, test_method=test_type, mask=mask)
 
     return
 
@@ -61,21 +61,17 @@ def run_all(graph_prefix, test_type, alpha=0.05):
 if __name__ == "__main__":
     parser = ArgumentParser()
     subparser = parser.add_subparsers(dest='mode')
-    bootstrap_parser = subparser.add_parser('bootstrap')
     _ = subparser.add_parser('all')
     _ = subparser.add_parser('0')
     _ = subparser.add_parser('1')
     _ = subparser.add_parser('2')
-    _ = subparser.add_parser('3')
-    _ = subparser.add_parser('4')
-    _ = subparser.add_parser('5')
-    bootstrap_parser.add_argument('--size', type=int)
     parser.add_argument('-t', '--test_method')
     args = parser.parse_args()
 
+    if not os.path.exists("./results/rlcd/synthetic"):
+        os.makedirs("./results/rlcd/synthetic")
 
     set_random_seed(12345)
-
 
     if args.mode == '0' or args.mode == 'all': 
         run_all("set", args.test_method)
